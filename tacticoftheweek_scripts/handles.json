@@ -1,0 +1,368 @@
+[
+ {
+  "rank": 1,
+  "name": "Carlsen, Magnus",
+  "rating": 2823,
+  "chesscom": [
+   {
+    "username": "magnuscarlsen",
+    "name": "Magnus Carlsen",
+    "title": "GM",
+    "verified": false,
+    "followers": 321416,
+    "last_online": 1791490083
+   },
+   {
+    "username": "magnuscarlsen",
+    "name": "Magnus Carlsen",
+    "title": "GM",
+    "verified": false,
+    "followers": 321416,
+    "last_online": 1791490083
+   }
+  ],
+  "lichess": [
+   {
+    "id": "drnykterstein",
+    "username": "DrNykterstein",
+    "title": "GM",
+    "real_name": "",
+    "name_matches": false,
+    "games": 10452
+   },
+   {
+    "id": "magnuscarlsen",
+    "username": "MagnusCarlsen",
+    "title": "GM",
+    "real_name": "",
+    "name_matches": false,
+    "games": 2
+   }
+  ]
+ },
+ {
+  "rank": 2,
+  "name": "Nakamura, Hikaru",
+  "rating": 2792,
+  "chesscom": [
+   {
+    "username": "hikaru",
+    "name": "Hikaru Nakamura",
+    "title": "GM",
+    "verified": false,
+    "followers": 1413991,
+    "last_online": 1791447506
+   },
+   {
+    "username": "gmnakamuracyborg",
+    "name": "Hikaru Nakamura",
+    "title": "GM",
+    "verified": false,
+    "followers": 87,
+    "last_online": 1767409264
+   },
+   {
+    "username": "hikarunakamura",
+    "name": "Hikaru Nakamura",
+    "title": "GM",
+    "verified": false,
+    "followers": 2204,
+    "last_online": 1284098813
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 3,
+  "name": "Caruana, Fabiano",
+  "rating": 2784,
+  "chesscom": [
+   {
+    "username": "fabianocaruana",
+    "name": "Fabiano Caruana",
+    "title": "GM",
+    "verified": false,
+    "followers": 24976,
+    "last_online": 1791495451
+   },
+   {
+    "username": "fabianocaruana",
+    "name": "Fabiano Caruana",
+    "title": "GM",
+    "verified": false,
+    "followers": 24976,
+    "last_online": 1791495451
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 4,
+  "name": "Sindarov, Javokhir",
+  "rating": 2782,
+  "chesscom": [
+   {
+    "username": "javokhir_sindarov05",
+    "name": "Javokhir Sindarov",
+    "title": "GM",
+    "verified": false,
+    "followers": 3318,
+    "last_online": 1790412526
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 5,
+  "name": "Abdusattorov, Nodirbek",
+  "rating": 2780,
+  "chesscom": [
+   {
+    "username": "chesswarrior7197",
+    "name": "Nodirbek Abdusattorov",
+    "title": "GM",
+    "verified": false,
+    "followers": 5672,
+    "last_online": 1791483172
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 6,
+  "name": "So, Wesley",
+  "rating": 2770,
+  "chesscom": [
+   {
+    "username": "gmwso",
+    "name": "Wesley So",
+    "title": "GM",
+    "verified": false,
+    "followers": 11293,
+    "last_online": 1791306744
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 7,
+  "name": "Praggnanandhaa R",
+  "rating": 2763,
+  "chesscom": [
+   {
+    "username": "rpragchess",
+    "name": "Praggnanandhaa Rameshbabu",
+    "title": "GM",
+    "verified": false,
+    "followers": 15135,
+    "last_online": 1791306173
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 8,
+  "name": "Keymer, Vincent",
+  "rating": 2761,
+  "chesscom": [
+   {
+    "username": "vincentkeymer",
+    "name": "Vincent Keymer",
+    "title": "GM",
+    "verified": false,
+    "followers": 4451,
+    "last_online": 1791306873
+   }
+  ],
+  "lichess": [
+   {
+    "id": "vincentkeymer2004",
+    "username": "VincentKeymer2004",
+    "title": "GM",
+    "real_name": "Vincent Keymer",
+    "name_matches": true,
+    "games": 19154
+   }
+  ]
+ },
+ {
+  "rank": 9,
+  "name": "Wei, Yi",
+  "rating": 2758,
+  "chesscom": [],
+  "lichess": []
+ },
+ {
+  "rank": 10,
+  "name": "Firouzja, Alireza",
+  "rating": 2757,
+  "chesscom": [
+   {
+    "username": "firouzja2003",
+    "name": "Alireza Firouzja",
+    "title": "GM",
+    "verified": false,
+    "followers": 32397,
+    "last_online": 1791460459
+   },
+   {
+    "username": "firouzja2003",
+    "name": "Alireza Firouzja",
+    "title": "GM",
+    "verified": false,
+    "followers": 32397,
+    "last_online": 1791460459
+   }
+  ],
+  "lichess": [
+   {
+    "id": "alireza2003",
+    "username": "alireza2003",
+    "title": "GM",
+    "real_name": "Alireza Firouzja",
+    "name_matches": true,
+    "games": 10887
+   }
+  ]
+ },
+ {
+  "rank": 11,
+  "name": "Giri, Anish",
+  "rating": 2752,
+  "chesscom": [
+   {
+    "username": "anishgiri",
+    "name": "Anish Giri",
+    "title": "GM",
+    "verified": false,
+    "followers": 11615,
+    "last_online": 1791402040
+   },
+   {
+    "username": "anishgiri",
+    "name": "Anish Giri",
+    "title": "GM",
+    "verified": false,
+    "followers": 11615,
+    "last_online": 1791402040
+   }
+  ],
+  "lichess": [
+   {
+    "id": "anishgiri",
+    "username": "AnishGiri",
+    "title": "GM",
+    "real_name": "Anish Giri",
+    "name_matches": true,
+    "games": 2754
+   }
+  ]
+ },
+ {
+  "rank": 12,
+  "name": "Erigaisi Arjun",
+  "rating": 2746,
+  "chesscom": [
+   {
+    "username": "arjunerigaisi",
+    "name": "arjun erigaisi",
+    "title": null,
+    "verified": false,
+    "followers": 9,
+    "last_online": 1416039150
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 13,
+  "name": "Duda, Jan-Krzysztof",
+  "rating": 2741,
+  "chesscom": [],
+  "lichess": []
+ },
+ {
+  "rank": 14,
+  "name": "Anand, Viswanathan",
+  "rating": 2739,
+  "chesscom": [],
+  "lichess": [
+   {
+    "id": "anand",
+    "username": "Anand",
+    "title": "GM",
+    "real_name": "Viswanathan Anand",
+    "name_matches": true,
+    "games": 13
+   }
+  ]
+ },
+ {
+  "rank": 15,
+  "name": "Dominguez Perez, Leinier",
+  "rating": 2732,
+  "chesscom": [],
+  "lichess": []
+ },
+ {
+  "rank": 16,
+  "name": "Le, Quang Liem",
+  "rating": 2732,
+  "chesscom": [],
+  "lichess": []
+ },
+ {
+  "rank": 17,
+  "name": "Erdogmus, Yagiz Kaan",
+  "rating": 2731,
+  "chesscom": [],
+  "lichess": []
+ },
+ {
+  "rank": 18,
+  "name": "Tabatabaei, M. Amin",
+  "rating": 2728,
+  "chesscom": [
+   {
+    "username": "amintabatabaei",
+    "name": "Amin Tabatabaei",
+    "title": "GM",
+    "verified": false,
+    "followers": 1975,
+    "last_online": 1791494516
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 19,
+  "name": "Aronian, Levon",
+  "rating": 2725,
+  "chesscom": [
+   {
+    "username": "levonaronian",
+    "name": "Levon Aronian",
+    "title": "GM",
+    "verified": false,
+    "followers": 6867,
+    "last_online": 1791300544
+   },
+   {
+    "username": "levonaronian",
+    "name": "Levon Aronian",
+    "title": "GM",
+    "verified": false,
+    "followers": 6867,
+    "last_online": 1791300544
+   }
+  ],
+  "lichess": []
+ },
+ {
+  "rank": 20,
+  "name": "Ding, Liren",
+  "rating": 2723,
+  "chesscom": [],
+  "lichess": []
+ }
+]
