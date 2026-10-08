@@ -3,7 +3,7 @@ import chess, chess.pgn, chess.engine
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import find_tactics as F
 
-MAX_GAMES = 60
+MAX_GAMES = 100
 TARGET = 2
 pool = json.load(open("pool_wi.json"))
 os.makedirs("walk3/results", exist_ok=True)
