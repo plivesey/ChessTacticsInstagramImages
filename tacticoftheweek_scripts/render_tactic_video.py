@@ -72,6 +72,7 @@ TURN_H = 100
 PAUSE_H = 100
 TURN_GAP = 20
 PAUSE_GAP = 70
+TITLE_GAP = 8
 
 
 def ease(t):
@@ -152,6 +153,19 @@ def make_text_overlay(text, width, height, font_size):
     return img
 
 
+def make_tight_line_overlay(text, width, font_size):
+    probe = Image.new("RGBA", (width, 10), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(probe)
+    font = ImageFont.truetype(FONT_PATH, font_size)
+    bbox = draw.textbbox((0, 0), text, font=font)
+    h = bbox[3] - bbox[1]
+    img = Image.new("RGBA", (width, h), (0, 0, 0, 0))
+    d2 = ImageDraw.Draw(img)
+    x = (width - (bbox[2] - bbox[0])) // 2 - bbox[0]
+    d2.text((x, -bbox[1]), text, font=font, fill=BANNER_FG)
+    return img
+
+
 def make_line_overlay(text, width, height, max_font, max_text_width):
     img = Image.new("RGBA", (width, height), (0, 0, 0, 0))
     if not text:
@@ -175,7 +189,7 @@ def make_line_overlay(text, width, height, max_font, max_text_width):
 def compose_frame(board_img, title_img=None, banner_img=None, turn_img=None):
     canvas = Image.new("RGBA", (CANVAS_W, CANVAS_H), BG_COLOR)
     if title_img is not None:
-        canvas.paste(title_img, (0, 0), title_img)
+        canvas.paste(title_img, (0, BOARD_Y - TITLE_GAP - title_img.height), title_img)
     canvas.paste(board_img, (BOARD_X, BOARD_Y), board_img)
     if turn_img is not None:
         canvas.paste(turn_img, (0, BOARD_Y + BOARD_PX + TURN_GAP), turn_img)
@@ -227,6 +241,7 @@ def main():
     parser.add_argument("--orientation", default="white", choices=["white", "black"])
     parser.add_argument("--pause-text", default="Pause now to solve it yourself")
     parser.add_argument("--title-text", default="")
+    parser.add_argument("--heading-text", default="Tactic of the Day")
     parser.add_argument("--turn-text", default="")
     parser.add_argument("--sfx-dir", default=DEFAULT_SFX_DIR)
     parser.add_argument("--no-sfx", action="store_true")
@@ -251,7 +266,7 @@ def main():
 
     idx = 0
     landing_events = []
-    title_overlay = None
+    title_overlay = make_tight_line_overlay(args.heading_text, CANVAS_W, 64) if args.heading_text else None
     if args.turn_text:
         turn_text = args.turn_text
     else:

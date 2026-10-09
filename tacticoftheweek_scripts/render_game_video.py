@@ -10,8 +10,10 @@ import render_tactic_video as R
 
 SR = 44100
 FPS = R.FPS
-PLAYERS_Y = R.BOARD_Y + R.BOARD_PX + 10
-PLAYERS_H = 250
+PLAYERS_Y = R.BOARD_Y + R.BOARD_PX + 20
+COPY_GAP = 20
+TITLE_GAP = 8
+COPY_Y = 0
 FAST_VOL = 0.45
 FAST_HOLD_AVG = 0.15
 
@@ -121,6 +123,52 @@ def lines_overlay(lines, width, height, size):
     return img
 
 
+def tight_lines_overlay(lines, width, size):
+    probe = Image.new("RGBA", (width, 10), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(probe)
+    font = ImageFont.truetype(R.FONT_PATH, size)
+    boxes = [draw.textbbox((0, 0), ln, font=font) for ln in lines]
+    gap = 14
+    total = sum(b[3] - b[1] for b in boxes) + gap * (len(lines) - 1)
+    img = Image.new("RGBA", (width, total), (0, 0, 0, 0))
+    d2 = ImageDraw.Draw(img)
+    y = 0
+    for ln, b in zip(lines, boxes):
+        x = (width - (b[2] - b[0])) // 2 - b[0]
+        d2.text((x, y - b[1]), ln, font=font, fill=R.BANNER_FG)
+        y += (b[3] - b[1]) + gap
+    return img
+
+
+def tight_wrapped_overlay(text, width, max_text_width, size):
+    probe = Image.new("RGBA", (width, 10), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(probe)
+    font = ImageFont.truetype(R.FONT_PATH, size)
+    lines = []
+    cur = ""
+    for w in text.split():
+        trial = (cur + " " + w).strip()
+        bb = draw.textbbox((0, 0), trial, font=font)
+        if bb[2] - bb[0] <= max_text_width or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    boxes = [draw.textbbox((0, 0), ln, font=font) for ln in lines]
+    gap = 10
+    total = sum(b[3] - b[1] for b in boxes) + gap * (len(lines) - 1)
+    img = Image.new("RGBA", (width, total), (0, 0, 0, 0))
+    d2 = ImageDraw.Draw(img)
+    y = 0
+    for ln, b in zip(lines, boxes):
+        x = (width - (b[2] - b[0])) // 2 - b[0]
+        d2.text((x, y - b[1]), ln, font=font, fill=R.BANNER_FG)
+        y += (b[3] - b[1]) + gap
+    return img
+
+
 class Writer:
     def __init__(self, path):
         cmd = ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -150,7 +198,7 @@ def compose(board_img, banner_img):
     c = BASE.copy()
     c.paste(board_img, (R.BOARD_X, R.BOARD_Y), board_img)
     if banner_img is not None:
-        c.paste(banner_img, (0, R.CANVAS_H - R.BANNER_H), banner_img)
+        c.paste(banner_img, (0, COPY_Y), banner_img)
     return c
 
 
@@ -262,7 +310,7 @@ def build_end_card():
 
 
 def main():
-    global BASE, WRITER
+    global BASE, WRITER, COPY_Y
     ap = argparse.ArgumentParser()
     ap.add_argument("results")
     ap.add_argument("--chain", type=int, default=-1)
@@ -334,20 +382,22 @@ def main():
     lines = ["White: %s (%s)" % (wname, h.get("WhiteElo", "?")),
              "Black: %s (%s)" % (bname, h.get("BlackElo", "?")),
              nice_date(h.get("Date", ""))]
-    title = R.make_text_overlay("Tactic of the Week", R.CANVAS_W, R.TITLE_H, 64)
-    players = lines_overlay(lines, R.CANVAS_W, PLAYERS_H, 44)
+    title = R.make_tight_line_overlay("Tactic of the Week", R.CANVAS_W, 64)
+    players = tight_lines_overlay(lines, R.CANVAS_W, 44)
+    COPY_Y = PLAYERS_Y + players.height + COPY_GAP
+    print("layout: title y", R.BOARD_Y - TITLE_GAP - title.height, "board y", R.BOARD_Y, "players y", PLAYERS_Y, "players h", players.height, "copy y", COPY_Y, flush=True)
     BASE = Image.new("RGBA", (R.CANVAS_W, R.CANVAS_H), R.BG_COLOR)
-    BASE.paste(title, (0, 0), title)
+    BASE.paste(title, (0, R.BOARD_Y - TITLE_GAP - title.height), title)
     BASE.paste(players, (0, PLAYERS_Y), players)
 
     def banner_text(text):
-        return R.make_text_overlay(text, R.CANVAS_W, R.BANNER_H, 48)
+        return tight_wrapped_overlay(text, R.CANVAS_W, R.BOARD_PX - 20, 44)
 
     pause_banner = banner_text("%s to move and win. Pause now to solve it yourself" % color)
     intro_banner = banner_text("Here" + chr(39) + "s how the game started")
     result_banner = banner_text(ttext)
     winner_name = wname if winner == chess.WHITE else bname
-    end_banner = R.make_text_overlay("%s wins in %d moves" % (winner_name, (n + 1) // 2), R.CANVAS_W, R.BANNER_H, 52)
+    end_banner = banner_text("%s wins in %d moves" % (winner_name, (n + 1) // 2))
 
     tmp_video = args.out + ".video.mp4"
     tmp_wav = args.out + ".audio.wav"
