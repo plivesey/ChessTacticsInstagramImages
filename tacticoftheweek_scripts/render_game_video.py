@@ -366,7 +366,7 @@ def main():
     ttext = tactic_text(color, opp_color, net, captured, mates[tac_end])
     print("tactic plies", s, "to", tac_end, "(extended by %d)" % ext, "net", net, "text:", ttext, flush=True)
 
-    fixed = 0.5 + 3.0 + 3.0 + 4.0
+    fixed = 0.5 + 4.0 + 3.0 + 4.0
     tac_time = 0.0
     for p in range(s, tac_end + 1):
         mover_is_winner = ((p % 2 == 0) == (winner == chess.WHITE))
@@ -408,7 +408,7 @@ def main():
     for p in range(0, s):
         animate(board, moves[p], orientation, fast_frames, fast_hold(p), intro_banner, FAST_VOL)
     pause_img = R.render_board_png(board, orientation, lastmove=moves[s - 1] if s > 0 else None)
-    WRITER.write(compose(pause_img, pause_banner), repeat=3 * FPS)
+    WRITER.write(compose(pause_img, pause_banner), repeat=4 * FPS)
     for p in range(s, tac_end + 1):
         hold = 0.3 if board.turn == winner else 0.9
         animate(board, moves[p], orientation, int(0.6 * FPS), int(hold * FPS), None, 1.0)
