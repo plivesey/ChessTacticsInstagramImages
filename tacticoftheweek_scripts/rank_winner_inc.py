@@ -1,4 +1,6 @@
-import glob, os, re, json, collections
+import glob, os, re, json, collections, datetime
+from zoneinfo import ZoneInfo
+CUTOFF_DATE = datetime.datetime.now(ZoneInfo("America/Los_Angeles")).date() - datetime.timedelta(days=7)
 import chess.pgn
 
 HANDLE = {"magnuscarlsen": ("carlsen", "m"), "drnykterstein": ("carlsen", "m"), "hikaru": ("nakamura", "h"),
@@ -76,6 +78,13 @@ for path in glob.glob("games/twic/*.pgn") + glob.glob("games/lichess/*.pgn") + g
                 continue
             if "abandon" in (h.get("Termination") or "").lower():
                 continue
+            gd = h.get("Date") or ""
+            try:
+                gdt = datetime.datetime.strptime(gd, "%Y.%m.%d").date()
+                if gdt < CUTOFF_DATE:
+                    continue
+            except ValueError:
+                pass
             tcv = parse_tc(h.get("TimeControl"))
             if tcv is not None and tcv < 180:
                 continue

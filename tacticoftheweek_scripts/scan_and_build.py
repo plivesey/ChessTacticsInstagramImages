@@ -8,7 +8,8 @@ sys.path.insert(0, ROOT)
 import find_tactics as F
 
 MAX_GAMES = 100
-MIN_LEN = 3
+MIN_LEN = 1
+GOOD_LEN = 3
 STOP_AFTER = 2
 RAW = "https://raw.githubusercontent.com/plivesey/ChessTacticsInstagramImages/main/weekly_videos/"
 HASHTAGS = "#chess #chesstactics #tacticoftheweek #chesspuzzle #chessplayer #chesstraining #learnchess #chesslovers"
@@ -158,10 +159,10 @@ def run(label):
         if game is not None:
             do_game(game)
     log("stage 1 (top five, no repeated players) done, tactics of %d+ moves: %d" % (MIN_LEN, len(found)))
-    if not found and os.path.exists("pool_wi.json"):
+    if os.path.exists("pool_wi.json"):
         pool = json.load(open("pool_wi.json"))
         for g in pool:
-            if state["analyzed"] >= MAX_GAMES or len(found) >= STOP_AFTER:
+            if state["analyzed"] >= MAX_GAMES or sum(1 for f in found if f[0] >= GOOD_LEN) >= STOP_AFTER:
                 break
             with open(g["path"], encoding="utf-8", errors="ignore") as f:
                 f.seek(g["pos"])

@@ -1,6 +1,6 @@
 import json, time
 now = time.time() * 1000
-week = 7 * 24 * 3600 * 1000
+week = 8 * 24 * 3600 * 1000
 for line in open("/tmp/lichess_bc.ndjson"):
     line = line.strip()
     if not line:
