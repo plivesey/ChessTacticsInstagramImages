@@ -1,6 +1,33 @@
 {
- "status": "none",
+ "status": "ready",
  "date": "2026-10-10",
- "games_analyzed": 34,
- "reason": "No tactic of 3 or more moves in 34 games."
+ "video_url": "https://raw.githubusercontent.com/plivesey/ChessTacticsInstagramImages/main/weekly_videos/totw_2026-10-10.mp4",
+ "caption": "♟️ TACTIC OF THE WEEK: Pranesh M vs Gavrilescu\n\nBlack to move and win! Pause the video and find it before the solution plays.\n\nPlayed Oct 5 at the Romanian Team Chess Championships 2026.\n\nWant more? Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics → link in bio\n\n#chess #chesstactics #tacticoftheweek #chesspuzzle #chessplayer #chesstraining #learnchess #chesslovers",
+ "winner": "Pranesh M",
+ "loser": "Gavrilescu, David",
+ "winner_color": "black",
+ "fen": "4r1k1/p4qpp/2p5/2B1b2r/2n1N3/2P3P1/P1P2P2/R2QR1K1 b - - 0 25",
+ "start_ply": 49,
+ "solution_uci": [
+  "e5c3",
+  "e8e1",
+  "c4e5",
+  "e5f3",
+  "h5h2",
+  "h2h1"
+ ],
+ "solution_san": [
+  "Bxc3",
+  "Rxe1+",
+  "Ne5",
+  "Nf3+",
+  "Rh2+",
+  "Rh1+"
+ ],
+ "tactic_length": 6,
+ "game_url": "https://lichess.org/broadcast/romanian-team-chess-championships-2026-mens-super-league/round-1/uTJet4pV/ssoTflxy",
+ "event": "Romanian Team Chess Championships 2026",
+ "game_date": "2026.10.05",
+ "games_analyzed": 35,
+ "created": "2026-10-10 14:49:26 UTC"
 }
