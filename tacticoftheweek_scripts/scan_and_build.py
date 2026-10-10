@@ -94,6 +94,19 @@ def build_caption(h, chain):
     return chr(10).join(lines)
 
 
+def music_credit_line(render_output):
+    m = re.search("music (/[^ ]+[.]mp3)", render_output or "")
+    if not m:
+        return ""
+    name = os.path.basename(m.group(1))
+    try:
+        credits = json.load(open(os.path.join(os.path.dirname(m.group(1)), "credits.json"), encoding="utf-8"))
+    except Exception:
+        return ""
+    entry = credits.get(name)
+    return entry["line"] if entry else ""
+
+
 def git_publish(msg):
     for attempt in range(2):
         for c in (["git", "-C", REPO, "pull", "--rebase", "--autostash", "origin", "main"],
@@ -198,6 +211,10 @@ def run(label):
         log("RESULT error")
         return 1
     os.makedirs(REPO + "/weekly_videos", exist_ok=True)
+    credit = music_credit_line(r.stdout)
+    if credit:
+        caption = caption + chr(10) + chr(10) + credit
+    log("music credit line:", credit or "none")
     shutil.copy(out_mp4, "%s/weekly_videos/totw_%s.mp4" % (REPO, label))
     white_won = chain["winner"] == "white"
     meta = {"status": "ready", "date": label, "video_url": RAW + "totw_%s.mp4" % label, "caption": caption,

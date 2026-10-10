@@ -1,0 +1,38 @@
+{
+ "blackbird.mp3": {
+  "title": "Blackbird",
+  "artist": "Toberton",
+  "url": "https://open.spotify.com/track/17Fy3U9aF8yQtvN7welMB5",
+  "line": "🎵 Music: Blackbird by Toberton → https://open.spotify.com/track/17Fy3U9aF8yQtvN7welMB5"
+ },
+ "beautiful_dreamer.mp3": {
+  "title": "Beautiful Dreamer",
+  "artist": "Toberton",
+  "url": "https://open.spotify.com/track/1ZP8WV93hfgJIlVD15QAFr",
+  "line": "🎵 Music: Beautiful Dreamer by Toberton → https://open.spotify.com/track/1ZP8WV93hfgJIlVD15QAFr"
+ },
+ "driving_ambition.mp3": {
+  "title": "Driving Ambition",
+  "artist": "Ahjay Stelino",
+  "url": "https://mixkit.co/free-stock-music/driving-ambition-32/",
+  "line": "🎵 Music: Driving Ambition by Ahjay Stelino → https://mixkit.co/free-stock-music/driving-ambition-32/"
+ },
+ "motivating_mornings.mp3": {
+  "title": "Motivating Mornings",
+  "artist": "Ahjay Stelino",
+  "url": "https://mixkit.co/free-stock-music/motivating-mornings-33/",
+  "line": "🎵 Music: Motivating Mornings by Ahjay Stelino → https://mixkit.co/free-stock-music/motivating-mornings-33/"
+ },
+ "raising_me_higher.mp3": {
+  "title": "Raising Me Higher",
+  "artist": "Ahjay Stelino",
+  "url": "https://mixkit.co/free-stock-music/raising-me-higher-34/",
+  "line": "🎵 Music: Raising Me Higher by Ahjay Stelino → https://mixkit.co/free-stock-music/raising-me-higher-34/"
+ },
+ "gimme_that_groove.mp3": {
+  "title": "Gimme That Groove",
+  "artist": "Michael Ramir C.",
+  "url": "https://mixkit.co/free-stock-music/gimme-that-groove-872/",
+  "line": "🎵 Music: Gimme That Groove by Michael Ramir C. → https://mixkit.co/free-stock-music/gimme-that-groove-872/"
+ }
+}
