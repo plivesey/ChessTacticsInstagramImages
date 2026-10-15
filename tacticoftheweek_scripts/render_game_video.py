@@ -296,17 +296,7 @@ END_TEXT = "Download Chess Tactics & Lessons from the Apple App Store for unlimi
 
 
 def build_end_card():
-    card = Image.new("RGBA", (R.CANVAS_W, R.CANVAS_H), R.BG_COLOR)
-    size = 560
-    if os.path.exists(LOGO_PATH):
-        logo = Image.open(LOGO_PATH).convert("RGBA").resize((size, size), Image.Resampling.LANCZOS)
-        big = Image.new("L", (size * 4, size * 4), 0)
-        ImageDraw.Draw(big).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255)
-        mask = big.resize((size, size), Image.Resampling.LANCZOS)
-        card.paste(logo, ((R.CANVAS_W - size) // 2, 480), mask)
-    text = R.make_text_overlay(END_TEXT, R.CANVAS_W, 420, 56)
-    card.paste(text, (0, 1120), text)
-    return card
+    return R.build_end_card()
 
 
 def main():

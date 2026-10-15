@@ -61,6 +61,14 @@ DEFAULT_MUSIC_DIR = os.path.join(SCRIPT_DIR, "music")
 MUSIC_VOLUME = 0.22
 MUSIC_FADE_IN = 0.6
 MUSIC_FADE_OUT = 1.8
+END_FADE_SECONDS = 1.0
+END_CARD_HOLD_SECONDS = 4.5
+FOLLOW_TEXT = "Follow us for a daily tactic"
+END_TEXT = "Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics"
+LOGO_CANDIDATES = [
+    os.path.expanduser("~/chess-tactics/tacticoftheweek/assets/logo.png"),
+    os.path.expanduser("~/chess-tactics/tacticoftheday/repo/tacticoftheweek_scripts/assets/logo.png"),
+]
 
 SCALE = BOARD_PX / FULL_SIZE_SVG
 SQUARE_PX = SQUARE_SIZE_SVG * SCALE
@@ -198,6 +206,23 @@ def compose_frame(board_img, title_img=None, banner_img=None, turn_img=None):
     return canvas
 
 
+def build_end_card():
+    card = Image.new("RGBA", (CANVAS_W, CANVAS_H), BG_COLOR)
+    size = 560
+    logo_path = next((p for p in LOGO_CANDIDATES if os.path.exists(p)), None)
+    if logo_path:
+        logo = Image.open(logo_path).convert("RGBA").resize((size, size), Image.Resampling.LANCZOS)
+        big = Image.new("L", (size * 4, size * 4), 0)
+        ImageDraw.Draw(big).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255)
+        mask = big.resize((size, size), Image.Resampling.LANCZOS)
+        card.paste(logo, ((CANVAS_W - size) // 2, 480), mask)
+    follow = make_text_overlay(FOLLOW_TEXT, CANVAS_W, 260, 64)
+    card.paste(follow, (0, 190), follow)
+    text = make_text_overlay(END_TEXT, CANVAS_W, 420, 56)
+    card.paste(text, (0, 1120), text)
+    return card
+
+
 def save_frame(img, frame_dir, index):
     path = os.path.join(frame_dir, "frame_%06d.png" % index)
     img.convert("RGB").save(path)
@@ -248,6 +273,7 @@ def main():
     parser.add_argument("--music-dir", default=DEFAULT_MUSIC_DIR)
     parser.add_argument("--music-file", default=None)
     parser.add_argument("--no-music", action="store_true")
+    parser.add_argument("--no-end-card", action="store_true")
     args = parser.parse_args()
 
     orientation = chess.WHITE if args.orientation == "white" else chess.BLACK
@@ -340,6 +366,15 @@ def main():
 
     for _ in range(int(END_HOLD_SECONDS * FPS)):
         idx = save_frame(final_frame, frame_dir, idx)
+
+    if not args.no_end_card:
+        end_card = build_end_card().convert("RGBA")
+        base_rgba = final_frame.convert("RGBA")
+        fade_frames = int(END_FADE_SECONDS * FPS)
+        for i in range(1, fade_frames + 1):
+            idx = save_frame(Image.blend(base_rgba, end_card, i / float(fade_frames)), frame_dir, idx)
+        for _ in range(int(END_CARD_HOLD_SECONDS * FPS)):
+            idx = save_frame(end_card, frame_dir, idx)
 
     total_frames = idx
     print("Wrote %d frames to %s" % (total_frames, frame_dir))
