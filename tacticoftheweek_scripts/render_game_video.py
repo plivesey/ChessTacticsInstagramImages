@@ -91,13 +91,18 @@ def material_text(color_name, diff):
     return "%s is down %s" % (color_name, join_phrases(neg))
 
 
-def tactic_text(color, opp, net, captured, mate):
+def tactic_text(color, opp, net, captured, mate, gained=None):
     if mate:
         return "%s delivers checkmate with this combination" % color
-    if chess.QUEEN in captured and net >= 1:
+    g = gained or {}
+    if g.get(chess.QUEEN, 0) > 0 and net >= 1:
         return "%s wins %s%ss queen with this combination" % (color, opp, chr(39))
-    if chess.ROOK in captured and net >= 2:
+    if g.get(chess.ROOK, 0) > 0 and net >= 2:
         return "%s wins a rook with this combination" % color
+    if g.get(chess.KNIGHT, 0) > 0 and g.get(chess.BISHOP, 0) <= 0 and net >= 2:
+        return "%s wins a knight with this combination" % color
+    if g.get(chess.BISHOP, 0) > 0 and g.get(chess.KNIGHT, 0) <= 0 and net >= 2:
+        return "%s wins a bishop with this combination" % color
     if net >= 3:
         return "%s wins %d points of material with this combination" % (color, net)
     if net >= 1:
@@ -353,7 +358,9 @@ def main():
         tmp.push(mv)
     start_pts = mats[s - 1] if s > 0 else 0
     net = mats[tac_end] - start_pts
-    ttext = tactic_text(color, opp_color, net, captured, mates[tac_end])
+    dstart = diffs[s - 1] if s > 0 else counts_diff(start_board, winner)
+    gained = {pt: diffs[tac_end][pt] - dstart[pt] for pt in diffs[tac_end]}
+    ttext = tactic_text(color, opp_color, net, captured, mates[tac_end], gained)
     print("tactic plies", s, "to", tac_end, "(extended by %d)" % ext, "net", net, "text:", ttext, flush=True)
 
     fixed = 0.5 + 4.0 + 3.0 + 4.0
