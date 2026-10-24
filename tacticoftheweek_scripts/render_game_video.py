@@ -91,23 +91,19 @@ def material_text(color_name, diff):
     return "%s is down %s" % (color_name, join_phrases(neg))
 
 
-def tactic_text(color, opp, net, captured, mate, gained=None):
+def tactic_text(color, opp, net, captured, mate, gained=None, score=None):
+    # Simple text from the engine score at the end of the tactic (winner point of view, centipawns).
+    # Mate scores are stored as 10000 minus the distance in plies.
     if mate:
-        return "%s delivers checkmate with this combination" % color
-    g = gained or {}
-    if g.get(chess.QUEEN, 0) > 0 and net >= 1:
-        return "%s wins %s%ss queen with this combination" % (color, opp, chr(39))
-    if g.get(chess.ROOK, 0) > 0 and net >= 2:
-        return "%s wins a rook with this combination" % color
-    if g.get(chess.KNIGHT, 0) > 0 and g.get(chess.BISHOP, 0) <= 0 and net >= 2:
-        return "%s wins a knight with this combination" % color
-    if g.get(chess.BISHOP, 0) > 0 and g.get(chess.KNIGHT, 0) <= 0 and net >= 2:
-        return "%s wins a bishop with this combination" % color
-    if net >= 3:
-        return "%s wins %d points of material with this combination" % (color, net)
-    if net >= 1:
-        return "%s wins material with this combination" % color
-    return "%s gets a winning position with this combination" % color
+        return '%s delivers checkmate with this combination' % color
+    if score is not None and score >= 9000:
+        moves = max(1, (10000 - int(score) + 1) // 2)
+        return '%s has a forced checkmate in %d' % (color, moves)
+    if score is not None and score > 1000:
+        return '%s is now winning decisively' % color
+    if score is not None and score >= 100:
+        return '%s is now winning with a +%d advantage' % (color, int(round(score / 100.0)))
+    return '%s has a winning position' % color
 
 
 def lines_overlay(lines, width, height, size):
@@ -360,7 +356,7 @@ def main():
     net = mats[tac_end] - start_pts
     dstart = diffs[s - 1] if s > 0 else counts_diff(start_board, winner)
     gained = {pt: captured.count(pt) for pt in PIECE_VAL}  # only real captures count as won, not promotions
-    ttext = tactic_text(color, opp_color, net, captured, mates[tac_end], gained)
+    ttext = tactic_text(color, opp_color, net, captured, mates[tac_end], gained, chain.get('s1_end'))
     print("tactic plies", s, "to", tac_end, "(extended by %d)" % ext, "net", net, "text:", ttext, flush=True)
 
     fixed = 0.5 + 4.0 + 3.0 + 4.0
