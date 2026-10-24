@@ -359,7 +359,7 @@ def main():
     start_pts = mats[s - 1] if s > 0 else 0
     net = mats[tac_end] - start_pts
     dstart = diffs[s - 1] if s > 0 else counts_diff(start_board, winner)
-    gained = {pt: diffs[tac_end][pt] - dstart[pt] for pt in diffs[tac_end]}
+    gained = {pt: captured.count(pt) for pt in PIECE_VAL}  # only real captures count as won, not promotions
     ttext = tactic_text(color, opp_color, net, captured, mates[tac_end], gained)
     print("tactic plies", s, "to", tac_end, "(extended by %d)" % ext, "net", net, "text:", ttext, flush=True)
 
