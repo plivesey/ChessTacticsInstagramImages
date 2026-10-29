@@ -63,7 +63,7 @@ MUSIC_FADE_IN = 0.6
 MUSIC_FADE_OUT = 1.8
 END_FADE_SECONDS = 1.0
 END_CARD_HOLD_SECONDS = 4.5
-FOLLOW_TEXT = "Follow us for a daily tactic"
+FOLLOW_TEXT = "Like and follow for a daily tactic"
 END_TEXT = "Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics"
 LOGO_CANDIDATES = [
     os.path.expanduser("~/chess-tactics/tacticoftheweek/assets/logo.png"),
