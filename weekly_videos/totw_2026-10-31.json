@@ -1,0 +1,27 @@
+{
+ "status": "ready",
+ "date": "2026-10-31",
+ "video_url": "https://raw.githubusercontent.com/plivesey/ChessTacticsInstagramImages/main/weekly_videos/totw_2026-10-31.mp4",
+ "caption": "♟️ TACTIC OF THE WEEK: Maroroa Jones vs Pilley\n\nBlack to move and win! Pause the video and find it before the solution plays.\n\nPlayed Oct 24 at the English Rapid Open 2026.\n\nWant more? Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics → link in bio\n\n#chess #chesstactics #tacticoftheweek #chesspuzzle #chessplayer #chesstraining #learnchess #chesslovers\n\n🎵 Music: Beautiful Dreamer by Toberton → https://open.spotify.com/track/1ZP8WV93hfgJIlVD15QAFr",
+ "winner": "Maroroa Jones,Gawain C B",
+ "loser": "Pilley,Jack",
+ "winner_color": "black",
+ "fen": "8/p3kp1p/r7/1pN1P3/6PK/1PPb4/PR2R3/3r4 b - - 0 35",
+ "start_ply": 69,
+ "solution_uci": [
+  "a6h6",
+  "h6g6",
+  "d3e2"
+ ],
+ "solution_san": [
+  "Rh6+",
+  "Rg6+",
+  "Bxe2"
+ ],
+ "tactic_length": 3,
+ "game_url": "Peterborough ENG",
+ "event": "English Rapid Open 2026",
+ "game_date": "2026.10.24",
+ "games_analyzed": 26,
+ "created": "2026-10-31 13:09:37 UTC"
+}
