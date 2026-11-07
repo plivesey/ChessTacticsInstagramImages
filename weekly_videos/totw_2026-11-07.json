@@ -1,0 +1,27 @@
+{
+ "status": "ready",
+ "date": "2026-11-07",
+ "video_url": "https://raw.githubusercontent.com/plivesey/ChessTacticsInstagramImages/main/weekly_videos/totw_2026-11-07.mp4",
+ "caption": "♟️ TACTIC OF THE WEEK: Maroroa Jones vs Khoury\n\nWhite to move and win! Pause the video and find it before the solution plays.\n\nPlayed Nov 1 at the English Blitz Open 2026.\n\nWant more? Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics → link in bio\n\n#chess #chesstactics #tacticoftheweek #chesspuzzle #chessplayer #chesstraining #learnchess #chesslovers\n\n🎵 Music: Blackbird by Toberton → https://open.spotify.com/track/17Fy3U9aF8yQtvN7welMB5",
+ "winner": "Maroroa Jones,Gawain C B",
+ "loser": "Khoury,Theo",
+ "winner_color": "white",
+ "fen": "R4K2/P6k/8/7p/7P/6P1/r7/8 w - - 11 72",
+ "start_ply": 142,
+ "solution_uci": [
+  "a8e8",
+  "e8e7",
+  "f8e7"
+ ],
+ "solution_san": [
+  "Re8",
+  "Re7+",
+  "Kxe7"
+ ],
+ "tactic_length": 3,
+ "game_url": "Peterborough ENG",
+ "event": "English Blitz Open 2026",
+ "game_date": "2026.11.01",
+ "games_analyzed": 40,
+ "created": "2026-11-07 14:10:47 UTC"
+}
