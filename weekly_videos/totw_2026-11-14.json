@@ -1,0 +1,33 @@
+{
+ "status": "ready",
+ "date": "2026-11-14",
+ "video_url": "https://raw.githubusercontent.com/plivesey/ChessTacticsInstagramImages/main/weekly_videos/totw_2026-11-14.mp4",
+ "caption": "♟️ TACTIC OF THE WEEK: Vachier-Lagrave vs Vaishali\n\nBlack to move and win! Pause the video and find it before the solution plays.\n\nPlayed Nov 11 at the 2026 Total Chess World Championship Tour Pilot Group D.\n\nWant more? Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics → link in bio\n\n#chess #chesstactics #tacticoftheweek #chesspuzzle #chessplayer #chesstraining #learnchess #chesslovers\n\n🎵 Music: Driving Ambition by Ahjay Stelino → https://mixkit.co/free-stock-music/driving-ambition-32/",
+ "winner": "Vachier-Lagrave, Maxime",
+ "loser": "Vaishali, Rameshbabu",
+ "winner_color": "black",
+ "fen": "8/8/8/1pppkp1p/p6P/P1P1K1P1/1PP5/8 b - - 1 34",
+ "start_ply": 67,
+ "solution_uci": [
+  "c5c4",
+  "d5d4",
+  "e5d4",
+  "d4d3",
+  "d3c2",
+  "c2b2"
+ ],
+ "solution_san": [
+  "c4",
+  "d4",
+  "Kxd4",
+  "Kd3",
+  "Kc2",
+  "Kxb2"
+ ],
+ "tactic_length": 6,
+ "game_url": "https://lichess.org/broadcast/total-chess-world-championship-tour-pilot-2026-group-stage-combined/round-1/VnCnEx5v/O0NSKJgh",
+ "event": "2026 Total Chess World Championship Tour Pilot Group D",
+ "game_date": "2026.11.11",
+ "games_analyzed": 22,
+ "created": "2026-11-14 13:57:53 UTC"
+}
