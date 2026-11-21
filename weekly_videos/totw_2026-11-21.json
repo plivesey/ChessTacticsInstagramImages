@@ -1,0 +1,25 @@
+{
+ "status": "ready",
+ "date": "2026-11-21",
+ "video_url": "https://raw.githubusercontent.com/plivesey/ChessTacticsInstagramImages/main/weekly_videos/totw_2026-11-21.mp4",
+ "caption": "♟️ TACTIC OF THE WEEK: So vs Niemann\n\nWhite to move and win! Pause the video and find it before the solution plays.\n\nPlayed Nov 15 at the Total Chess Pilot GpD.\n\nWant more? Download Chess Tactics & Lessons from the Apple App Store for unlimited free tactics → link in bio\n\n#chess #chesstactics #tacticoftheweek #chesspuzzle #chessplayer #chesstraining #learnchess #chesslovers\n\n🎵 Music: Gimme That Groove by Michael Ramir C. → https://mixkit.co/free-stock-music/gimme-that-groove-872/",
+ "winner": "So,W",
+ "loser": "Niemann,Hans Moke",
+ "winner_color": "white",
+ "fen": "8/5K2/p5p1/3k4/bP3p1P/6P1/3B4/8 w - - 0 60",
+ "start_ply": 118,
+ "solution_uci": [
+  "d2f4",
+  "f4c7"
+ ],
+ "solution_san": [
+  "Bxf4",
+  "Bc7"
+ ],
+ "tactic_length": 2,
+ "game_url": "Budapest HUN",
+ "event": "Total Chess Pilot GpD",
+ "game_date": "2026.11.15",
+ "games_analyzed": 52,
+ "created": "2026-11-21 14:02:51 UTC"
+}
